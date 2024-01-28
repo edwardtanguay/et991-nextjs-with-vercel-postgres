@@ -24,21 +24,23 @@ const blankNewNote = {
 
 export default function Home() {
 	const [notes, setNotes] = useState<note[]>([]);
-	const [newNote, setNewNote] = useState<newNote>(blankNewNote);
+	const [newNote, setNewNote] = useState<newNote>(structuredClone(blankNewNote));
+
+	const fetchAllNotes = async () => {
+		const headers = {
+			"Cache-Control": "no-cache",
+			Pragma: "no-cache",
+			Expires: "0",
+		};
+		const response = await axios.get(`${baseUrl}/api/get-notes`, {
+			headers,
+		});
+		const _notes = response.data;
+		setNotes(_notes);
+	};
 
 	useEffect(() => {
-		(async () => {
-			const headers = {
-				"Cache-Control": "no-cache",
-				Pragma: "no-cache",
-				Expires: "0",
-			};
-			const response = await axios.get(`${baseUrl}/api/get-notes`, {
-				headers,
-			});
-			const _notes = response.data;
-			setNotes(_notes);
-		})();
+		fetchAllNotes();
 	}, []);
 
 	const handleFieldChange = (fieldIdCode: string, value: string) => {
@@ -70,8 +72,10 @@ export default function Home() {
 						headers,
 					}
 				);
+				setNewNote(structuredClone(blankNewNote));
+				fetchAllNotes();
 			} catch (e: any) {
-				alert(e.message);
+				alert('Sorry, your note could not be added.');
 			}
 		})();
 	};

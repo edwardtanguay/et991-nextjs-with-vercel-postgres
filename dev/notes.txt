@@ -5,5 +5,7 @@
 - x read online env var pin
 - x CREATE with auto increment
 	- x text with get-note
-- .. test with Postman pin online
-- add and display from Next.js
+- x test with Postman pin online
+- x add and display from Next.js
+- .. fetch and show notes
+- .. post works

@@ -1,15 +1,13 @@
 @url = http://localhost:3051
 	
-### GET ALL SKILLS
+### GET ALL PETS
 GET {{url}}/api/get-pets
 	
-### ADD A SKILL
-POST {{url}}/skills
+### ADD A PET
+POST {{url}}/api/post-pet
 content-type: application/json
 	
 {
-	"idCode":"111",
-	"name":"nnn",
-	"url":"uuu",
-	"description":"ddd"
+	"name": "Fido",
+	"owner": "Mr. Dogowner555"
 }

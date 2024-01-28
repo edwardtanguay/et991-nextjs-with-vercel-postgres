@@ -2,4 +2,5 @@
 - x make test.rest for current route
 - x change to sending body as post
 - x won't do: make a CLI for creating
-- .. read online env var pin
+- x read online env var pin
+- .. CREATE with auto increment

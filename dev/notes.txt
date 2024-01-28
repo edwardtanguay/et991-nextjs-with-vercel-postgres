@@ -3,7 +3,7 @@
 - x change to sending body as post
 - x won't do: make a CLI for creating
 - x read online env var pin
--  CREATE with auto increment
-	-  text with get-note
+- x CREATE with auto increment
+	- x text with get-note
 - .. test with Postman pin online
 - add and display from Next.js

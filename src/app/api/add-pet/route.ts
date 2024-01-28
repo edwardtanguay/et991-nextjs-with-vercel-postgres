@@ -5,6 +5,7 @@ export const POST = async (req: Request) => {
 	const { name, owner } = await req.json();
 
 	try {
+		if (process.env.APP_ENV !== 'development') throw Error('not authorized');
 		if (!name || !owner) throw new Error('Pet and owner names required');
 		const result = await sql`INSERT INTO Pets (Name, Owner) VALUES (${name}, ${owner})`;
 		const {rows} = await sql`SELECT * FROM Pets`;

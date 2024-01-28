@@ -9,7 +9,10 @@ export async function GET(request: Request) {
 		// await sql`CREATE TABLE IF NOT EXISTS Pets ( Name varchar(255), Owner varchar(255) );`;
 
 		// CREATE NOTES
-		await sql`CREATE TABLE IF NOT EXISTS Notes ( id SERIAL PRIMARY KEY, body varchar(255), rank decimal);`;
+		// await sql`CREATE TABLE IF NOT EXISTS Notes ( id SERIAL PRIMARY KEY, body varchar(255), rank decimal);`;
+
+		// DELETE NOTES
+		// await sql`DELETE FROM NOTES WHERE 1=1;`;
 
 		return NextResponse.json("ok", { status: 200 });
 	} catch (error: any) {

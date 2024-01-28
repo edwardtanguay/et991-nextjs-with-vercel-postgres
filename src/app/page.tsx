@@ -13,13 +13,13 @@ interface note {
 interface newNote {
 	body: string;
 	rank: string;
-	pin: string;
+	app_pin: string;
 }
 
 const blankNewNote = {
 	body: "",
-	rank: 3.5,
-	pin: "",
+	rank: "2.5",
+	app_pin: "",
 };
 
 export default function Home() {
@@ -49,11 +49,31 @@ export default function Home() {
 			case "rank":
 				newNote.rank = value;
 				break;
-			case "pin":
-				newNote.pin = value;
+			case "app_pin":
+				newNote.app_pin = value;
 				break;
 		}
 		setNewNote(structuredClone(newNote));
+	};
+
+	const handleSave = () => {
+		(async () => {
+			const headers = {
+				"Access-Control-Allow-Origin": "*",
+				"Content-Type": "application/json",
+			};
+			try {
+				const response = await axios.post(
+					`${baseUrl}/api/add-note`,
+					newNote,
+					{
+						headers,
+					}
+				);
+			} catch (e: any) {
+				alert(e.message);
+			}
+		})();
 	};
 
 	return (
@@ -99,9 +119,9 @@ export default function Home() {
 						PIN
 					</label>
 					<input
-						value={newNote.pin}
+						value={newNote.app_pin}
 						onChange={(e) =>
-							handleFieldChange("pin", e.target.value)
+							handleFieldChange("app_pin", e.target.value)
 						}
 						className="w-[8rem]"
 						type="password"
@@ -113,15 +133,15 @@ export default function Home() {
 				</div>
 
 				<div className="mt-6 flex justify-end">
-					<button className="bg-slate-700 px-2 py-1 rounded text-slate-400">
+					<button
+						onClick={handleSave}
+						type="button"
+						className="bg-slate-700 px-2 py-1 rounded text-slate-400"
+					>
 						Save
 					</button>
 				</div>
 			</form>
-
-			<div>body: [{newNote.body}]</div>
-			<div>rank: [{newNote.rank}]</div>
-			<div>pin: [{newNote.pin}]</div>
 
 			<section className="mt-6">
 				<h2 className="text-1xl mb-4">

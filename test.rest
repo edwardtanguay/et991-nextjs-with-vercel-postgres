@@ -1,5 +1,8 @@
 @url = http://localhost:3051
 	
+### EXECUTE SQL
+GET {{url}}/api/sql
+	
 ### GET ALL PETS
 GET {{url}}/api/get-pets
 	

@@ -7,12 +7,12 @@ export async function GET(request: Request) {
 	const ownerName = searchParams.get('ownerName');
 
 	try {
-		if (!petName || !ownerName) throw new Error('Pet and owner names required');
-		await sql`INSERT INTO Pets (Name, Owner) VALUES (${petName}, ${ownerName});`;
+		// if (!petName || !ownerName) throw new Error('Pet and owner names required');
+		// await sql`INSERT INTO Pets (Name, Owner) VALUES (${petName}, ${ownerName});`;
 	} catch (error) {
 		return NextResponse.json({ error }, { status: 500 });
 	}
 
 	const pets = await sql`SELECT * FROM Pets;`;
-	return NextResponse.json({ pets: pets.rows }, { status: 200 });
+	return NextResponse.json({ message: "inserting currently disabled", pets: pets.rows }, { status: 200 });
 }

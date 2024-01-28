@@ -3,6 +3,9 @@
 ### EXECUTE SQL
 GET {{url}}/api/sql
 	
+### EXECUTE SQL
+GET {{url}}/api/get-pin
+	
 ### GET ALL PETS
 GET {{url}}/api/get-pets
 	

@@ -1,4 +1,5 @@
 - x make a get-pets route
 - x make test.rest for current route
-- .. change to sending body as post
-- make a CLI for creating
+- x change to sending body as post
+- x won't do: make a CLI for creating
+- .. read online env var pin

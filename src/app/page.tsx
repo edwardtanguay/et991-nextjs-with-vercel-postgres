@@ -2,7 +2,8 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 
-const baseUrl = "http://localhost:3051";
+// const baseUrl = "http://localhost:3051";
+const baseUrl = "";
 
 interface note {
 	id: number;

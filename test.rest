@@ -6,8 +6,8 @@ GET {{url}}/api/sql
 ### EXECUTE SQL
 GET {{url}}/api/get-pin
 	
-### GET ALL PETS
-GET {{url}}/api/get-pets
+### GET ALL NOTES
+GET {{url}}/api/get-notes
 	
 ### ADD A PET
 POST {{url}}/api/post-pet
@@ -24,6 +24,6 @@ content-type: application/json
 	
 {
 	"app_pin": "123",
-	"body": "This is the second note.",
-	"rank": 4.1
+	"body": "333This is the third note and here is a lot more text for a long entry, another one.",
+	"rank": 2.7
 }

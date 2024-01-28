@@ -1,0 +1,4 @@
+- x make a get-pets route
+- x make test.rest for current route
+- .. change to sending body as post
+- make a CLI for creating

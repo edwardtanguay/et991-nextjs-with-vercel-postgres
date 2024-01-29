@@ -16,7 +16,7 @@ export const POST = async (req: Request) => {
 		// if (app_pin !== process.env.APP_PIN) throw Error('not authorized');
 		// if (!body || !rank) throw new Error('body and rank required');
 		// const result = await sql`INSERT INTO Notes (body, rank) VALUES ('test', 2)`;
-		const {rows} = await sql`SELECT * FROM Notes`;
+		const {rows} = await sql`SELECT * FROM Notes ORDER BY rank DESC`;
 		return NextResponse.json(rows)
 	}
 	catch(error:any) {

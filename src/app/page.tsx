@@ -33,7 +33,7 @@ export default function Home() {
 			Pragma: "no-cache",
 			Expires: "0",
 		};
-		const response = await axios.get(`${baseUrl}/api/get-notes`, {
+		const response = await axios.post(`${baseUrl}/api/get-notes2`, {}, {
 			headers,
 		});
 		const _notes = response.data;
